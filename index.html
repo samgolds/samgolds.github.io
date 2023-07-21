@@ -1,7 +1,74 @@
----
-layout: default
-title: Sam Goldstein
----
-<div class="blurb">
-	<h1>One day this will exist</h1>
-</div><!-- /.blurb -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/minireset.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat|Quicksand"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="css/animations.css" />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"
+    ></script>
+    <script defer type="text/javascript" src="js/main.js"></script>
+
+    <title>Sam Goldstein</title>
+  </head>
+  <body>
+    <div
+      id="wallpaper"
+      class="wallpaper"
+      data-image="images/abstract.jpg"
+    ></div>
+    <div class="content">
+      <aside class="side">
+        <figure id="picture" class="picture">
+          <div class="picture-shadow"></div>
+          <img
+            id="pictureImage"
+            class="picture-image"
+            src="images/vishal.jpg"
+            srcset="
+              images/vishal.jpg  1x,
+              <!-- images/alex@2x.jpg 2x,
+              images/alex@3x.jpg 3x -->
+            "
+            alt="A person"
+            width="320"
+            height="320"
+          />
+        </figure>
+      </aside>
+      <main class="about">
+        <h1 class="name">Hi, I'm Vishal Rana</h1>
+        <p class="job">Useless</p>
+        <hr class="hr" />
+        <div class="description">
+          <p>
+            I don't do anything
+          </p>
+        </div>
+        <div class="contact">
+          <a class="button" href="mailto:sjg2215@columbia.edu">
+            Get in touch
+          </a>
+        </div>
+      </main>
+    </div>
+    <noscript>
+      <style type="text/css">
+        .wallpaper {
+          animation-name: zoomOut;
+        }
+        .picture {
+          animation-name: dropIn;
+        }
+      </style>
+    </noscript>
+  </body>
+</html>
