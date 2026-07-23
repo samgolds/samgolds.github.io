@@ -1,86 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="css/minireset.css" />
-    <link rel="stylesheet" type="text/css" href="css/main.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Montserrat|Quicksand"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" type="text/css" href="css/animations.css" />
-    <script
-      defer
-      src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"
-    ></script>
-    <script defer type="text/javascript" src="js/main.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sam Goldstein</title>
+  <meta name="description" content="Samuel Goldstein — Physics PhD candidate at Columbia University.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;450;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
 
-    <title>Sam Goldstein</title>
-  </head>
-  <body>
-    <!-- <div class="sidenav">
-      <a href="#">About</a>
-      <a href="#">Services</a>
-      <a href="#">Clients</a>
-      <a href="#">Contact</a>
-    </div> -->
-    <div
-      id="wallpaper"
-      class="wallpaper"
-      data-image="images/abstract.jpg"
-    ></div>
-    <div class="content">
-      <aside class="side">
-        <figure id="picture" class="picture">
-          <div class="picture-shadow"></div>
-          <img
-            id="pictureImage"
-            class="picture-image"
-            src="images/vishal.jpg"
-            srcset="
-              images/vishal.jpg  1x,
-              <!-- images/alex@2x.jpg 2x,
-              images/alex@3x.jpg 3x -->
-            "
-            alt="A person"
-            width="320"
-            height="320"
-          />
-        </figure>
-      </aside>
-      <main class="about">
-        <h1 class="name">Sam Goldstein</h1>
-        <p class="job">Physics Ph.D. Candidate at Columbia University</p>
-        <hr class="hr" />
-        <div class="description">
-          <p>
-            Under construction.
-          </p>
-        </div>
-        <div class="contact">
-          <a class="button" href="mailto:sjg2215@columbia.edu">
-            Email
-          </a>
-          <a class="button" href=" https://inspirehep.net/authors/2619969?ui-citation-summary=true">
-            Publications (INSPIRE)
-          </a>
-          <a class="button" href=" ./files/current_CV.pdf">
-            CV
-          </a>
-        </div>
-      </main>
+<canvas id="bg"></canvas>
+
+<nav class="tabs">
+  <a href="#" class="tab active" data-tab="about">About</a>
+  <a href="#" class="tab" data-tab="research">Research</a>
+</nav>
+
+<!-- About -->
+<main class="page" id="about">
+  <div class="container">
+    <div class="header-row">
+      <div class="photo-wrap">
+        <img src="images/image_with_cat.jpg" alt="Sam Goldstein" />
+      </div>
+      <div class="header-text">
+        <h1>Sam Goldstein</h1>
+        <p class="affiliation">Physics PhD candidate, Columbia University</p>
+      </div>
     </div>
-    <noscript>
-      <style type="text/css">
-        .wallpaper {
-          animation-name: zoomOut;
-        }
-        .picture {
-          animation-name: dropIn;
-        }
-      </style>
-    </noscript>
-  </body>
+    <div class="vline"></div>
+    <div class="below">
+      <p class="bio">
+        I'm a fourth-year PhD student working with
+        <a href="https://www.jcolinhill.com/">Colin Hill</a> on cosmology.
+        I spend most of my time working on different ways to use cosmic
+        microwave background (CMB) and large-scale structure (LSS) observations
+        to test fundamental physics. Before Columbia I was a
+        <a href="https://fulbrightscholars.org/">Fulbright Scholar</a> at the
+        Max Planck Institute for Astrophysics, and before that I studied
+        physics and math at Penn.
+      </p>
+      <nav class="links">
+        <a href="mailto:sjg2215@columbia.edu">Email</a>
+        <a href="./files/current_CV.pdf">CV</a>
+        <a href="https://inspirehep.net/authors/2619969">Publications</a>
+        <a href="https://github.com/samgolds">GitHub</a>
+      </nav>
+    </div>
+  </div>
+</main>
+
+<!-- Research -->
+<main class="page hidden" id="research">
+  <div class="research-layout">
+    <div class="sim-wrap">
+      <canvas id="zelCanvas" width="500" height="500"></canvas>
+      <div class="sim-controls">
+        <div class="slider-row">
+          <span class="slider-label">Growth factor</span>
+          <input type="range" id="growthSlider" min="0" max="500" value="0" step="1">
+          <span class="slider-value" id="growthLabel">D = 0.00</span>
+        </div>
+        <button id="regenBtn">New universe</button>
+      </div>
+    </div>
+    <div class="sim-text">
+      <h2>The Zel'dovich Approximation</h2>
+      <p>
+        Inflation seeds the universe with nearly Gaussian density
+        fluctuations drawn from an approximately scale-invariant power
+        spectrum, <em>P(k)&nbsp;&prop;&nbsp;k<sup>n<sub>s</sub></sup></em>
+        with <em>n<sub>s</sub>&nbsp;&approx;&nbsp;0.96</em>. Gravity then
+        amplifies these perturbations, pulling matter into the filaments,
+        walls, and clusters that form the <em>cosmic web</em>.
+      </p>
+      <p>
+        The Zel'dovich approximation models this by displacing each
+        particle from its Lagrangian grid position by a fixed vector
+        &Psi;(<strong>q</strong>), scaled by a linear growth factor
+        <em>D</em>:&ensp;<strong>x</strong> = <strong>q</strong>
+        + <em>D</em>&thinsp;&Psi;(<strong>q</strong>).
+        As <em>D</em> increases, matter streams out of underdense
+        regions and collapses into overdense filaments and
+        nodes&mdash;shell-crossing marks the onset of nonlinearity.
+      </p>
+      <p class="sim-note">
+        Drag the slider to evolve the universe.
+        <em>New universe</em> generates fresh initial conditions.
+      </p>
+    </div>
+  </div>
+</main>
+
+<script src="js/main.js"></script>
+</body>
 </html>

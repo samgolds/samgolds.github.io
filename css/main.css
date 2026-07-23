@@ -1,251 +1,316 @@
-html {
-  background-color: #08060f;
-  background-image: linear-gradient(to bottom right, #000000, #000000);
-  color: #fff;
-  font-family: "Quicksand", sans-serif;
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
-  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.7;
+  color: #c8c8c8;
+  background: #0a0a0a;
   -webkit-font-smoothing: antialiased;
-  line-height: 1.5;
-  min-height: 100vh;
-  min-width: 300px;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  text-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
 }
 
 a {
-  color: currentColor;
-  cursor: pointer;
+  color: #8aab8a;
   text-decoration: none;
+  border-bottom: 1px solid rgba(138, 171, 138, 0.3);
+  transition: border-color 0.2s, color 0.2s;
+}
+a:hover {
+  color: #a8cca8;
+  border-bottom-color: #a8cca8;
 }
 
-.wallpaper {
-  display: block;
-  height: 100%;
-  left: 0;
-  right: 0;
-  width: 100%;
-  background-image: url("../images/abstract.jpg");
-  background-position: center;
-  background-size: cover;
-  opacity: 0.1;
+.hidden { display: none !important; }
+
+/* --- Background canvas --- */
+#bg {
   position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  pointer-events: none;
 }
-.content {
+
+/* --- Tabs --- */
+.tabs {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
   display: flex;
-  position: relative;
-  min-height: 100vh;
-}
-.side {
-  max-height: 20rem;
-  max-width: 20rem;
-}
-.about {
-  max-width: 26rem;
-}
-
-@media screen and (max-width: 799px) {
-  .content {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 5rem 3rem;
-  }
-  .side {
-    margin-bottom: 3rem;
-    width: 100%;
-  }
-}
-
-@media screen and (min-width: 800px) {
-  .content {
-    padding: 4rem;
-    /* justify-content: space-around; */
-    justify-content: space-evenly;
-    align-items: center;
-  }
-  .side {
-    /* flex-grow: 0; */
-    flex-shrink: 0;
-    height: 20rem;
-    margin-left: 4rem;
-    order: 2;
-    width: 20rem;
-  }
-  .about {
-    flex-grow: 1;
-    flex-shrink: 1;
-  }
-}
-
-.wallpaper,
-.picture-shadow,
-.picture-image {
-  display: block;
-  height: 100%;
-  left: 0;
-  top: 0;
-  width: 100%;
-}
-
-.picture {
-  padding-top: 100%;
-  position: relative;
-  width: 100%;
-}
-.picture-shadow {
-  border-radius: 290486px;
-  background-image: radial-gradient(#000 0%, rgba(0, 0, 0, 0) 70%);
-  position: absolute;
-  top: 10%;
-}
-
-.picture-image {
-  border-radius: 290486px;
-  position: absolute;
-}
-
-.name {
-  font-size: 2.25rem;
-  line-height: 1.125;
-  margin-bottom: 0.5rem;
-}
-
-.job,
-.button {
-  font-family: "Montserrat", "Quicksand", sans-serif;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-}
-
-.job {
-  color: #ffe479;
-  font-size: 0.75rem;
-}
-
-.hr {
-  background-color: #ff470f;
-  border: none;
-  content: "";
-  height: 1px;
-  margin-bottom: 1.5rem;
-  margin-top: 1.5rem;
-  transform-origin: center left;
-  width: 4rem;
-}
-
-.description {
-  font-size: 1.5rem;
-}
-
-.contact {
-  display: inline-block;
-  margin-top: 1.5rem;
-  vertical-align: top;
-}
-
-.button,
-.social a {
-  transform-origin: center;
-  transition-duration: 100ms;
-}
-.button {
-  background-color: #fff;
-  border-radius: 290486px;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-  color: #061493;
-  display: inline-block;
-  font-size: 0.875rem;
-  line-height: 1;
-  padding: 1.25em 2em;
-  text-shadow: none;
-  transition-property: box-shadow, transform;
-  user-select: none;
-  vertical-align: top;
-  white-space: nowrap;
-  will-change: box-shadow, transform;
-}
-
-.button:hover {
-  box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.2);
-  transform: scale(1.02) translateY(-4px);
-}
-.button:active {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
-  transform: scale(0.98) translateY(-2px);
-}
-
-.social {
-  display: flex;
-  margin-top: 1.5rem;
-}
-
-.social li {
-  height: 2rem;
-  margin-right: 0.5rem;
-  text-align: center;
-  width: 2rem;
-}
-
-.social a {
-  align-items: center;
-  display: flex;
-  font-size: 1.5rem;
-  height: 2rem;
   justify-content: center;
-  opacity: 0.5;
-  transition-property: opacity, transform;
-  width: 2rem;
-  will-change: opacity, transform;
+  gap: 0.25rem;
+  padding: 1.25rem 1rem 0;
+  pointer-events: none;
 }
 
-.social a:hover {
-  opacity: 1;
-  transform: scale(1.25);
+.tab {
+  pointer-events: auto;
+  padding: 0.4rem 1.25rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #555;
+  border: none; border-bottom: none;
+  border-radius: 100px;
+  transition: color 0.2s, background 0.2s;
+  cursor: pointer;
+}
+.tab:hover { color: #999; border-bottom: none; }
+.tab.active {
+  color: #d0d0d0;
+  background: rgba(30, 30, 30, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
-.social a:active {
-  opacity: 1;
-  transform: scale(1.1);
+/* --- Page --- */
+.page {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
 }
 
+/* ============ ABOUT ============ */
+.container { max-width: 42rem; width: 100%; }
 
-
-/* The sidebar menu */
-.sidenav {
-  height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 160px; /* Set the width of the sidebar */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
-  left: 0;
-  background-color: #111; /* Black */
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 20px;
+.header-row {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
 }
 
-/* The navigation menu links */
-.sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
+.photo-wrap {
+  width: 6rem; height: 6rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(255,255,255,0.7);
+  box-shadow: 0 0 20px rgba(255,255,255,0.04), 0 8px 30px rgba(0,0,0,0.4);
+}
+.photo-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
   display: block;
 }
 
-/* When you mouse over the navigation links, change their color */
-.sidenav a:hover {
-  color: #f1f1f1;
+h1 {
+  font-family: "EB Garamond", Georgia, "Times New Roman", serif;
+  font-size: 2.75rem;
+  font-weight: 400;
+  color: #f0f0f0;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
 }
 
-/* Style page content */
-.main {
-  margin-left: 160px; /* Same as the width of the sidebar */
-  padding: 0px 10px;
+.affiliation {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 0.3rem;
+  letter-spacing: 0.02em;
 }
 
-/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+.vline {
+  width: 1px; height: 2.25rem;
+  background: linear-gradient(to bottom, #333, #1a1a1a);
+  margin: 1.5rem 0 1.5rem 3rem;
+}
+
+.bio {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #909090;
+  max-width: 38rem;
+}
+
+.links {
+  margin-top: 1.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.links a {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  border: 1px solid #2a2a2a;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #aaa;
+  background: transparent;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  border-bottom: 1px solid #2a2a2a;
+}
+.links a:hover {
+  background: #161616;
+  border-color: #444;
+  color: #ddd;
+}
+
+/* ============ RESEARCH ============ */
+.research-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+  max-width: 62rem;
+  width: 100%;
+}
+
+.sim-wrap {
+  flex-shrink: 0;
+}
+
+#zelCanvas {
+  display: block;
+  width: 500px;
+  height: 500px;
+  border-radius: 6px;
+  border: 1px solid #1e1e1e;
+  background: #08080c;
+}
+
+.sim-controls {
+  margin-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.slider-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.slider-label {
+  font-size: 0.78rem;
+  color: #555;
+  white-space: nowrap;
+}
+
+.slider-value {
+  font-size: 0.78rem;
+  color: #777;
+  font-family: "SF Mono", "Fira Code", Menlo, Consolas, monospace;
+  min-width: 4.5rem;
+  text-align: right;
+}
+
+#growthSlider {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 3px;
+  background: #222;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+#growthSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: #888;
+  border: 2px solid #333;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+#growthSlider::-webkit-slider-thumb:hover {
+  background: #aaa;
+}
+#growthSlider::-moz-range-thumb {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: #888;
+  border: 2px solid #333;
+  cursor: pointer;
+}
+
+#regenBtn {
+  padding: 0.35rem 0.9rem;
+  background: transparent;
+  border: 1px solid #2a2a2a;
+  border-radius: 100px;
+  color: #888;
+  font-size: 0.78rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  white-space: nowrap;
+}
+#regenBtn:hover {
+  border-color: #444;
+  color: #ccc;
+  background: #161616;
+}
+
+.sim-text {
+  max-width: 22rem;
+  padding-top: 0.5rem;
+}
+
+.sim-text h2 {
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #ddd;
+  margin-bottom: 1rem;
+}
+
+.sim-text p {
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: #777;
+  margin-bottom: 0.75rem;
+}
+
+.sim-note {
+  margin-top: 0.75rem;
+  font-size: 0.82rem !important;
+  color: #555 !important;
+}
+
+/* --- Responsive --- */
+@media screen and (max-width: 950px) {
+  .research-layout {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  #zelCanvas {
+    width: 90vw;
+    height: 90vw;
+    max-width: 500px;
+    max-height: 500px;
+  }
+  .sim-text {
+    max-width: 500px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header-row {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  h1 { font-size: 2rem; }
+  .vline { margin: 1.25rem auto; }
+  .bio { text-align: left; }
+  .links { justify-content: center; }
+  .page { padding: 2rem 1.25rem; }
+  .sim-controls { flex-direction: column; }
+  .slider-row { width: 100%; }
 }
