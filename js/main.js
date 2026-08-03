@@ -1,19 +1,17 @@
 function loadImage(id, targetId) {
   var el = document.getElementById(id);
+  if (!el) return;
   var targetEl = targetId ? document.getElementById(targetId) : el;
   var imageToLoad;
 
   if (el.dataset.image) {
-    imageToLoad - el.dataset.image;
-    // console.log("1st " + imageToLoad);
-  } else if (typeof el.currentSrc === undefined) {
+    imageToLoad = el.dataset.image;
+  } else if (typeof el.currentSrc === "undefined") {
     imageToLoad = el.src;
-    // console.log("2nd " + imageToLoad);
   } else {
     imageToLoad = el.currentSrc;
-    // console.log("3rd " + imageToLoad);
   }
-  console.log(imageToLoad);
+
   if (imageToLoad) {
     var img = new Image();
     img.src = imageToLoad;
@@ -24,6 +22,5 @@ function loadImage(id, targetId) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  loadImage("wallpaper"); 
   loadImage("pictureImage", "picture");
 });

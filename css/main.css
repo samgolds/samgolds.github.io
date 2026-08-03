@@ -1,6 +1,9 @@
 html {
-  background-color: #08060f;
-  background-image: linear-gradient(to bottom right, #000000, #000000);
+  background-color: #050508;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
   color: #fff;
   font-family: "Quicksand", sans-serif;
   font-size: 16px;
@@ -19,94 +22,55 @@ a {
   text-decoration: none;
 }
 
-.wallpaper {
-  display: block;
-  height: 100%;
-  left: 0;
-  right: 0;
-  width: 100%;
-  background-image: url("../images/abstract.jpg");
-  background-position: center;
-  background-size: cover;
-  opacity: 0.1;
-  position: fixed;
+/* ========== HERO ========== */
+.hero {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 5rem 4rem 2rem;
 }
-.content {
+
+.hero-inner {
+  max-width: 100%;
+}
+
+.hero-header {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+/* ========== PHOTO ========== */
+.picture {
+  width: 160px;
+  height: 160px;
+  flex-shrink: 0;
   position: relative;
-  min-height: 100vh;
-}
-.side {
-  max-height: 20rem;
-  max-width: 20rem;
-}
-.about {
-  max-width: 26rem;
+  margin-left: 3rem;
 }
 
-@media screen and (max-width: 799px) {
-  .content {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 5rem 3rem;
-  }
-  .side {
-    margin-bottom: 3rem;
-    width: 100%;
-  }
+.picture-shadow {
+  display: none;
 }
 
-@media screen and (min-width: 800px) {
-  .content {
-    padding: 4rem;
-    /* justify-content: space-around; */
-    justify-content: space-evenly;
-    align-items: center;
-  }
-  .side {
-    /* flex-grow: 0; */
-    flex-shrink: 0;
-    height: 20rem;
-    margin-left: 4rem;
-    order: 2;
-    width: 20rem;
-  }
-  .about {
-    flex-grow: 1;
-    flex-shrink: 1;
-  }
-}
-
-.wallpaper,
-.picture-shadow,
 .picture-image {
   display: block;
+  width: 100%;
   height: 100%;
-  left: 0;
-  top: 0;
-  width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  filter: brightness(0.8);
 }
 
-.picture {
-  padding-top: 100%;
-  position: relative;
-  width: 100%;
-}
-.picture-shadow {
-  border-radius: 290486px;
-  background-image: radial-gradient(#000 0%, rgba(0, 0, 0, 0) 70%);
-  position: absolute;
-  top: 10%;
-}
-
-.picture-image {
-  border-radius: 290486px;
-  position: absolute;
-}
-
+/* ========== TYPOGRAPHY ========== */
 .name {
-  font-size: 2.25rem;
+  font-size: 2.5rem;
   line-height: 1.125;
   margin-bottom: 0.5rem;
 }
@@ -135,117 +99,155 @@ a {
 }
 
 .description {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
 }
 
+.description p + p {
+  margin-top: 1rem;
+}
+
+.description.headline {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.description.bio {
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+.text-link {
+  color: #ffe479;
+  border-bottom: 1px solid rgba(255, 228, 121, 0.3);
+  transition: border-color 200ms;
+}
+.text-link:hover {
+  border-bottom-color: #ffe479;
+}
+
+/* ========== BUTTONS ========== */
 .contact {
-  display: inline-block;
-  margin-top: 1.5rem;
-  vertical-align: top;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  justify-content: center;
 }
 
-.button,
-.social a {
-  transform-origin: center;
-  transition-duration: 100ms;
-}
 .button {
-  background-color: #fff;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 290486px;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-  color: #061493;
+  box-shadow: none;
+  color: #fff;
   display: inline-block;
   font-size: 0.875rem;
   line-height: 1;
   padding: 1.25em 2em;
   text-shadow: none;
-  transition-property: box-shadow, transform;
+  transform-origin: center;
+  transition: border-color 200ms, background-color 200ms, transform 100ms;
   user-select: none;
   vertical-align: top;
   white-space: nowrap;
-  will-change: box-shadow, transform;
 }
 
 .button:hover {
-  box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.2);
-  transform: scale(1.02) translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.06);
+  transform: translateY(-2px);
 }
 .button:active {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
-  transform: scale(0.98) translateY(-2px);
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(0);
 }
 
-.social {
-  display: flex;
+/* ========== RESEARCH ========== */
+.research-section {
+  position: relative;
+  padding: 2rem 4rem 4rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.research-inner {
+  max-width: 100%;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  line-height: 1.125;
+  margin-bottom: 0.5rem;
+}
+
+.area-label {
+  display: block;
+  font-family: "Montserrat", "Quicksand", sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #ffe479;
+  margin-bottom: 0.4rem;
+}
+
+.research-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
   margin-top: 1.5rem;
 }
 
-.social li {
-  height: 2rem;
-  margin-right: 0.5rem;
+.research-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 1.25rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.research-card p {
+  margin: 0;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 4rem 3rem;
+  font-size: 0.8rem;
+  opacity: 0.4;
   text-align: center;
-  width: 2rem;
 }
 
-.social a {
-  align-items: center;
-  display: flex;
-  font-size: 1.5rem;
-  height: 2rem;
-  justify-content: center;
-  opacity: 0.5;
-  transition-property: opacity, transform;
-  width: 2rem;
-  will-change: opacity, transform;
-}
-
-.social a:hover {
-  opacity: 1;
-  transform: scale(1.25);
-}
-
-.social a:active {
-  opacity: 1;
-  transform: scale(1.1);
-}
-
-
-
-/* The sidebar menu */
-.sidenav {
-  height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 160px; /* Set the width of the sidebar */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
-  left: 0;
-  background-color: #111; /* Black */
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 20px;
-}
-
-/* The navigation menu links */
-.sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-}
-
-/* When you mouse over the navigation links, change their color */
-.sidenav a:hover {
-  color: #f1f1f1;
-}
-
-/* Style page content */
-.main {
-  margin-left: 160px; /* Same as the width of the sidebar */
-  padding: 0px 10px;
-}
-
-/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+/* ========== MOBILE ========== */
+@media screen and (max-width: 799px) {
+  .hero {
+    padding: 3rem 2rem 1.5rem;
+  }
+  .hero-header {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+  }
+  .picture {
+    margin-left: 0;
+    margin-bottom: 1.5rem;
+    width: 140px;
+    height: 140px;
+  }
+  .name {
+    font-size: 1.75rem;
+  }
+  .hr {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .contact {
+    justify-content: center;
+  }
+  .research-section {
+    padding: 1.5rem 2rem 3rem;
+  }
 }

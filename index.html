@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Sam Goldstein — cosmologist and physics Ph.D. candidate at Columbia University. Research in primordial non-Gaussianity, CMB secondary anisotropies, and dark energy." />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23050508'/%3E%3Ctext x='16' y='22' font-family='system-ui,sans-serif' font-size='18' font-weight='600' fill='%23ffe479' text-anchor='middle'%3ESG%3C/text%3E%3C/svg%3E" />
     <link rel="stylesheet" type="text/css" href="css/minireset.css" />
     <link rel="stylesheet" type="text/css" href="css/main.css" />
     <link
@@ -11,72 +13,143 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" type="text/css" href="css/animations.css" />
-    <script
-      defer
-      src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"
-    ></script>
     <script defer type="text/javascript" src="js/main.js"></script>
 
     <title>Sam Goldstein</title>
   </head>
   <body>
-    <!-- <div class="sidenav">
-      <a href="#">About</a>
-      <a href="#">Services</a>
-      <a href="#">Clients</a>
-      <a href="#">Contact</a>
-    </div> -->
-    <div
-      id="wallpaper"
-      class="wallpaper"
-      data-image="images/abstract.jpg"
-    ></div>
-    <div class="content">
-      <aside class="side">
-        <figure id="picture" class="picture">
-          <div class="picture-shadow"></div>
-          <img
-            id="pictureImage"
-            class="picture-image"
-            src="images/vishal.jpg"
-            srcset="
-              images/vishal.jpg  1x,
-              <!-- images/alex@2x.jpg 2x,
-              images/alex@3x.jpg 3x -->
-            "
-            alt="A person"
-            width="320"
-            height="320"
-          />
-        </figure>
-      </aside>
-      <main class="about">
-        <h1 class="name">Sam Goldstein</h1>
-        <p class="job">Physics Ph.D. Candidate at Columbia University</p>
+    <div class="hero">
+      <div class="hero-inner">
+        <div class="hero-header">
+          <div class="hero-text">
+            <h1 class="name">Sam Goldstein</h1>
+            <p class="job">Physics Ph.D. Candidate &middot; Columbia University</p>
+          </div>
+          <figure id="picture" class="picture">
+            <div class="picture-shadow"></div>
+            <img
+              id="pictureImage"
+              class="picture-image"
+              src="images/cat_cropped.jpg"
+              alt="Sam Goldstein with a cat on his shoulder"
+              width="640"
+              height="640"
+            />
+          </figure>
+        </div>
+
+        <hr class="hr" />
+
+        <div class="description headline">
+          <p>
+            I am a cosmologist interested in using cosmic microwave background
+            (CMB) and large-scale structure (LSS) observations to test
+            fundamental physics.
+          </p>
+        </div>
+
+        <div class="description bio">
+          <p>
+            I am a fourth-year physics Ph.D. student at
+            <a href="https://www.columbia.edu/" class="text-link">Columbia University</a>,
+            advised by
+            <a href="http://user.astro.columbia.edu/~jch/" class="text-link">J. Colin Hill</a>,
+            although I am currently visiting
+            <a href="https://www.lbl.gov/" class="text-link">Lawrence Berkeley National Lab</a>
+            as a
+            <a href="https://science.osti.gov/wdts/scgsr" class="text-link">DOE SCGSR Fellow</a>.
+            Before Columbia, I spent a year at the
+            <a href="https://www.mpa-garching.mpg.de/" class="text-link">Max Planck Institute for Astrophysics</a>
+            in Garching, Germany as a Fulbright Fellow. I completed my masters in
+            physics and bachelors in physics and mathematics at the
+            <a href="https://www.upenn.edu/" class="text-link">University of Pennsylvania</a> in 2021.
+          </p>
+        </div>
+
+        <div class="contact">
+          <a class="button" href="mailto:sjg2215@columbia.edu">Email</a>
+          <a class="button" href="https://inspirehep.net/authors/2619969?ui-citation-summary=true">Publications</a>
+          <a class="button" href="./files/current_CV.pdf">CV</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="research-section">
+      <div class="research-inner">
+        <h2 class="section-title">Research</h2>
         <hr class="hr" />
         <div class="description">
           <p>
-            Under construction.
+            My research sits at the intersection of observational and
+            theoretical cosmology, with a focus on developing statistical and
+            computational tools for extracting new physics from cosmological
+            data. I am fortunate to be working at a time with exceptional CMB and LSS observations. I am a member of the
+            <a href="https://act.princeton.edu/" class="text-link">Atacama Cosmology Telescope</a> (ACT),
+            the <a href="https://www.desi.lbl.gov/" class="text-link">Dark Energy Spectroscopic Instrument</a> (DESI),
+            and the <a href="https://simonsobservatory.org/" class="text-link">Simons Observatory</a> (SO).
           </p>
         </div>
-        <div class="contact">
-          <a class="button" href="mailto:sjg2215@columbia.edu">
-            Email
-          </a>
-          <a class="button" href=" https://inspirehep.net/authors/2619969?ui-citation-summary=true">
-            Publications (INSPIRE)
-          </a>
-          <a class="button" href=" ./files/current_CV.pdf">
-            CV
-          </a>
+
+        <div class="research-grid">
+          <div class="research-card">
+            <span class="area-label">Primordial non-Gaussianity</span>
+            <p>
+              Primordial non-Gaussianity (PNG) is arguably one of our best probes of
+              the fundamental physics responsible for inflation. I am interested in developing estimators for PNG at small scales,
+              where non-linear nuisances make precision cosmology notoriously challenging. Using large-scale structure consistency relations, my collaborators and I developed non-perturbative estimators for a range of PNG models using the
+              <a href="https://arxiv.org/abs/2209.06228" class="text-link">matter bispectrum</a>, 
+              <a href="https://arxiv.org/abs/2310.12959" class="text-link">lensing bispectrum</a>,
+              and the matter and galaxy <a href="https://arxiv.org/abs/2407.08731" class="text-link"> trispectrum</a>.
+              A useful byproduct of this program is the first suite of N-body simulations
+              with
+              <a href="https://arxiv.org/abs/2505.13443" class="text-link">cosmological collider</a>
+              initial conditions, as well as
+              <a href="https://github.com/samgolds/PNGolin" class="text-link">PNGolin</a>,
+              a package for measuring large-scale structure power spectra,
+              bispectra, and trispectra. More recently, we have shown that these bispectrum and trispectrum estimators can be used to directly <a href="https://arxiv.org/abs/2604.18581" class="text-link">measure the non-Gaussian power spectrum covariance </a>.
+
+
+            </p>
+          </div>
+          <div class="research-card">
+            <span class="area-label">CMB secondary anisotropies</span>
+            <p>
+              I use CMB secondary anisotropies to probe both fundamental physics
+              and astrophysics. This includes using patchy screening of the CMB
+              to place
+              <a href="https://arxiv.org/abs/2409.10514" class="text-link">constraints on axion-like particles</a>,
+              as well as extracting
+              <a href="https://arxiv.org/abs/2512.10951" class="text-link">evidence of galaxy cluster rotation</a>
+              via the rotational kinetic Sunyaev-Zel'dovich effect. These
+              analyses are focused on extracting faint signals from CMB maps.
+            </p>
+          </div>
+          <div class="research-card">
+            <span class="area-label">Cosmological model building &amp; constraints</span>
+            <p>
+              I test extensions to the standard cosmological model using
+              combinations of CMB, LSS, and astrophysical data. This includes
+              showing that
+              <a href="https://arxiv.org/abs/2303.00746" class="text-link">early dark energy cosmologies are in tension with eBOSS Lyman-alpha forest</a> observations,
+              exploring
+              <a href="https://arxiv.org/abs/2507.16970" class="text-link">oscillatory dark energy models</a>
+              motivated by recent DESI results, and obtaining the
+             tightest constraint on the effective number of  <a href="https://arxiv.org/abs/2603.13226" class="text-link">relativistic degrees of freedom in the early Universe (N<sub>eff</sub>)</a> to date
+              by combining primordial element abundance measurements with CMB observations.
+            </p>
+          </div>
         </div>
-      </main>
+      </div>
     </div>
+
+    <footer class="footer">
+      <p>&copy; 2026 Sam Goldstein &middot;
+        <a href="https://github.com/samgolds" class="text-link">GitHub</a>
+      </p>
+    </footer>
+
     <noscript>
       <style type="text/css">
-        .wallpaper {
-          animation-name: zoomOut;
-        }
         .picture {
           animation-name: dropIn;
         }
