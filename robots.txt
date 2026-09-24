@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://samgolds.github.io/sitemap.xml
+Sitemap: https://samgoldstein.org/sitemap.xml
